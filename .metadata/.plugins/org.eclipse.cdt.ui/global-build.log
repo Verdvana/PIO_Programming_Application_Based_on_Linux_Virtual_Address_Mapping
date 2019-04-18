@@ -1,0 +1,489 @@
+21:20:51 **** Clean-only build of configuration Debug for project hello ****
+make clean 
+clean   ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   ./src/button.d ./src/led.d ./src/mpu.d ./src/uart.d  ./main.d  hello 
+' '
+21:20:54 **** Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/button.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/button.d" -MT"src/button.o" -o "src/button.o" "../src/button.c"
+'Finished building: ../src/button.c'
+' '
+'Building file: ../src/led.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/led.d" -MT"src/led.o" -o "src/led.o" "../src/led.c"
+In file included from ../src/led.c:12:0:
+../src/../inc/led.h:14:1: warning: parameter names (without types) in function declaration [enabled by default]
+ void LED_OFF(viod);
+ ^
+'Finished building: ../src/led.c'
+' '
+'Building file: ../src/mpu.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/mpu.d" -MT"src/mpu.o" -o "src/mpu.o" "../src/mpu.c"
+../src/mpu.c: In function 'fpga_init':
+../src/mpu.c:66:16: warning: assignment makes integer from pointer without a cast [enabled by default]
+  *virtual_base = periph_virtual_base; //将外设虚拟地址保存，用以释放时候使用
+                ^
+'Finished building: ../src/mpu.c'
+' '
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+../src/uart.c:15:19: fatal error: hps_0.h: No such file or directory
+ #include "hps_0.h"
+                   ^
+compilation terminated.
+make: *** [src/subdir.mk:29: src/uart.o] Error 1
+21:21:21 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+../src/uart.c:15:1: error: stray '\241' in program
+ 。。#include "hps_0.h"
+ ^
+../src/uart.c:15:1: error: stray '\243' in program
+../src/uart.c:15:1: error: stray '\241' in program
+../src/uart.c:15:1: error: stray '\243' in program
+../src/uart.c:15:5: error: stray '#' in program
+ 。。#include "hps_0.h"
+     ^
+../src/uart.c:15:14: error: expected '=', ',', ';', 'asm' or '__attribute__' before string constant
+ 。。#include "hps_0.h"
+              ^
+../src/uart.c: In function 'uart_putc':
+../src/uart.c:25:17: error: 'uart_0_virtual_base' undeclared (first use in this function)
+   uart_status=*(uart_0_virtual_base+2);
+                 ^
+../src/uart.c:25:17: note: each undeclared identifier is reported only once for each function it appears in
+../src/uart.c: In function 'uart_getc':
+../src/uart.c:36:17: error: 'uart_0_virtual_base' undeclared (first use in this function)
+   uart_status=*(uart_0_virtual_base+2);
+                 ^
+../src/uart.c: In function 'uart_0_init':
+../src/uart.c:69:4: error: 'uart_0_virtual_base' undeclared (first use in this function)
+  *(uart_0_virtual_base + 4)=(int)(UART_0_FREQ / br + 0.5);
+    ^
+../src/uart.c:69:35: error: 'UART_0_FREQ' undeclared (first use in this function)
+  *(uart_0_virtual_base + 4)=(int)(UART_0_FREQ / br + 0.5);
+                                   ^
+../src/uart.c: In function 'uart_getc':
+../src/uart.c:40:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/subdir.mk:29: src/uart.o] Error 1
+21:21:28 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+../src/uart.c: In function 'uart_0_init':
+../src/uart.c:69:35: error: 'UART_0_FREQ' undeclared (first use in this function)
+  *(uart_0_virtual_base + 4)=(int)(UART_0_FREQ / br + 0.5);
+                                   ^
+../src/uart.c:69:35: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [src/subdir.mk:29: src/uart.o] Error 1
+21:21:41 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+../src/uart.c:15:19: fatal error: hps_0.h: No such file or directory
+ #include "hps_0.h"
+                   ^
+compilation terminated.
+make: *** [src/subdir.mk:29: src/uart.o] Error 1
+21:22:11 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building file: ../main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+In file included from ../main.c:29:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/led.h:14:1: warning: parameter names (without types) in function declaration [enabled by default]
+ void LED_OFF(viod);
+ ^
+../main.c: In function 'main':
+../main.c:50:2: warning: passing argument 1 of 'fpga_init' from incompatible pointer type [enabled by default]
+  fd = fpga_init(&virtual_base);
+  ^
+In file included from ../main.c:28:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/mpu.h:19:5: note: expected 'long int *' but argument is of type 'int *'
+ int fpga_init(long int *virtual_base);
+     ^
+../main.c:93:2: warning: passing argument 1 of 'uart_scanf' from incompatible pointer type [enabled by default]
+  uart_scanf(&rx_buf); //接受一行数组到rx_buf中
+  ^
+In file included from ../main.c:31:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/uart.h:15:5: note: expected 'char *' but argument is of type 'char (*)[128]'
+ int uart_scanf(char *p);    //字符串接收
+     ^
+../main.c:98:2: warning: passing argument 1 of 'munmap' makes pointer from integer without a cast [enabled by default]
+  if (munmap(virtual_base, HW_REGS_SPAN) != 0) {
+  ^
+In file included from ../main.c:12:0:
+d:\intelfpga\18.1\embedded\ds-5\sw\gcc\arm-linux-gnueabihf\libc\usr\include\sys\mman.h:76:12: note: expected 'void *' but argument is of type 'int'
+ extern int munmap (void *__addr, size_t __len) __THROW;
+            ^
+../main.c:47:25: warning: unused variable 'led1' [-Wunused-variable]
+  unsigned int led0 = 1, led1 = 1;
+                         ^
+'Finished building: ../main.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+21:22:19 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+21:22:23 **** Incremental Build of configuration Debug for project hello ****
+make all 
+make: Nothing to be done for 'all'.
+21:22:25 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+21:22:30 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+21:22:34 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+21:22:39 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+21:22:46 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+21:22:50 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+21:23:05 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+21:23:11 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+21:23:16 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+21:23:27 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+21:23:34 **** Incremental Build of configuration Debug for project hello ****
+make all 
+make: Nothing to be done for 'all'.
+21:24:09 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/led.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/led.d" -MT"src/led.o" -o "src/led.o" "../src/led.c"
+In file included from ../src/led.c:12:0:
+../src/../inc/led.h:14:1: warning: parameter names (without types) in function declaration [enabled by default]
+ void LED_OFF(viod);
+ ^
+'Finished building: ../src/led.c'
+' '
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+15:17:25 **** Incremental Build of configuration Debug for project hello ****
+make all 
+make: Nothing to be done for 'all'.
+15:26:30 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+In file included from ../main.c:29:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/led.h:14:1: warning: parameter names (without types) in function declaration [enabled by default]
+ void LED_OFF(viod);
+ ^
+../main.c: In function 'main':
+../main.c:50:2: warning: passing argument 1 of 'fpga_init' from incompatible pointer type [enabled by default]
+  fd = fpga_init(&virtual_base);
+  ^
+In file included from ../main.c:28:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/mpu.h:19:5: note: expected 'long int *' but argument is of type 'int *'
+ int fpga_init(long int *virtual_base);
+     ^
+../main.c:95:2: warning: passing argument 1 of 'uart_scanf' from incompatible pointer type [enabled by default]
+  uart_scanf(&rx_buf); //接受一行数组到rx_buf中
+  ^
+In file included from ../main.c:31:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/uart.h:15:5: note: expected 'char *' but argument is of type 'char (*)[128]'
+ int uart_scanf(char *p);    //字符串接收
+     ^
+../main.c:100:2: warning: passing argument 1 of 'munmap' makes pointer from integer without a cast [enabled by default]
+  if (munmap(virtual_base, HW_REGS_SPAN) != 0) {
+  ^
+In file included from ../main.c:12:0:
+d:\intelfpga\18.1\embedded\ds-5\sw\gcc\arm-linux-gnueabihf\libc\usr\include\sys\mman.h:76:12: note: expected 'void *' but argument is of type 'int'
+ extern int munmap (void *__addr, size_t __len) __THROW;
+            ^
+../main.c:47:25: warning: unused variable 'led1' [-Wunused-variable]
+  unsigned int led0 = 1, led1 = 1;
+                         ^
+'Finished building: ../main.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+16:28:43 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../src/mpu.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/mpu.d" -MT"src/mpu.o" -o "src/mpu.o" "../src/mpu.c"
+../src/mpu.c: In function 'fpga_init':
+../src/mpu.c:66:16: warning: assignment makes integer from pointer without a cast [enabled by default]
+  *virtual_base = periph_virtual_base; //将外设虚拟地址保存，用以释放时候使用
+                ^
+'Finished building: ../src/mpu.c'
+' '
+'Building file: ../src/uart.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"src/uart.d" -MT"src/uart.o" -o "src/uart.o" "../src/uart.c"
+'Finished building: ../src/uart.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+16:36:22 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+In file included from ../main.c:29:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/led.h:14:1: warning: parameter names (without types) in function declaration [enabled by default]
+ void LED_OFF(viod);
+ ^
+../main.c: In function 'main':
+../main.c:50:2: warning: passing argument 1 of 'fpga_init' from incompatible pointer type [enabled by default]
+  fd = fpga_init(&virtual_base);
+  ^
+In file included from ../main.c:28:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/mpu.h:19:5: note: expected 'long int *' but argument is of type 'int *'
+ int fpga_init(long int *virtual_base);
+     ^
+../main.c:98:2: warning: passing argument 1 of 'uart_scanf' from incompatible pointer type [enabled by default]
+  uart_scanf(&rx_buf); //接受一行数组到rx_buf中
+  ^
+In file included from ../main.c:31:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/uart.h:15:5: note: expected 'char *' but argument is of type 'char (*)[128]'
+ int uart_scanf(char *p);    //字符串接收
+     ^
+../main.c:103:2: warning: passing argument 1 of 'munmap' makes pointer from integer without a cast [enabled by default]
+  if (munmap(virtual_base, HW_REGS_SPAN) != 0) {
+  ^
+In file included from ../main.c:12:0:
+d:\intelfpga\18.1\embedded\ds-5\sw\gcc\arm-linux-gnueabihf\libc\usr\include\sys\mman.h:76:12: note: expected 'void *' but argument is of type 'int'
+ extern int munmap (void *__addr, size_t __len) __THROW;
+            ^
+../main.c:47:25: warning: unused variable 'led1' [-Wunused-variable]
+  unsigned int led0 = 1, led1 = 1;
+                         ^
+'Finished building: ../main.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+16:38:59 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+In file included from ../main.c:29:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/led.h:14:1: warning: parameter names (without types) in function declaration [enabled by default]
+ void LED_OFF(viod);
+ ^
+../main.c: In function 'main':
+../main.c:50:2: warning: passing argument 1 of 'fpga_init' from incompatible pointer type [enabled by default]
+  fd = fpga_init(&virtual_base);
+  ^
+In file included from ../main.c:28:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/mpu.h:19:5: note: expected 'long int *' but argument is of type 'int *'
+ int fpga_init(long int *virtual_base);
+     ^
+../main.c:98:2: warning: passing argument 1 of 'uart_scanf' from incompatible pointer type [enabled by default]
+  uart_scanf(&rx_buf); //接受一行数组到rx_buf中
+  ^
+In file included from ../main.c:31:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/uart.h:15:5: note: expected 'char *' but argument is of type 'char (*)[128]'
+ int uart_scanf(char *p);    //字符串接收
+     ^
+../main.c:103:2: warning: passing argument 1 of 'munmap' makes pointer from integer without a cast [enabled by default]
+  if (munmap(virtual_base, HW_REGS_SPAN) != 0) {
+  ^
+In file included from ../main.c:12:0:
+d:\intelfpga\18.1\embedded\ds-5\sw\gcc\arm-linux-gnueabihf\libc\usr\include\sys\mman.h:76:12: note: expected 'void *' but argument is of type 'int'
+ extern int munmap (void *__addr, size_t __len) __THROW;
+            ^
+../main.c:47:25: warning: unused variable 'led1' [-Wunused-variable]
+  unsigned int led0 = 1, led1 = 1;
+                         ^
+'Finished building: ../main.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '
+16:41:14 **** Incremental Build of configuration Debug for project hello ****
+make all 
+'Building file: ../main.c'
+'Invoking: GCC C Compiler 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include\soc_cv_av" -I"D:\intelFPGA\18.1\embedded\ip\altera\hps\altera_hps\hwlib\include" -I"E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc" -O0 -g -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+In file included from ../main.c:29:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/led.h:14:1: warning: parameter names (without types) in function declaration [enabled by default]
+ void LED_OFF(viod);
+ ^
+../main.c: In function 'main':
+../main.c:50:2: warning: passing argument 1 of 'fpga_init' from incompatible pointer type [enabled by default]
+  fd = fpga_init(&virtual_base);
+  ^
+In file included from ../main.c:28:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/mpu.h:19:5: note: expected 'long int *' but argument is of type 'int *'
+ int fpga_init(long int *virtual_base);
+     ^
+../main.c:97:2: warning: passing argument 1 of 'uart_scanf' from incompatible pointer type [enabled by default]
+  uart_scanf(&rx_buf); //接受一行数组到rx_buf中
+  ^
+In file included from ../main.c:31:0:
+E:\2019InnovateFPGA\CODE_Project\Software\hello\hello\inc/../inc/uart.h:15:5: note: expected 'char *' but argument is of type 'char (*)[128]'
+ int uart_scanf(char *p);    //字符串接收
+     ^
+../main.c:102:2: warning: passing argument 1 of 'munmap' makes pointer from integer without a cast [enabled by default]
+  if (munmap(virtual_base, HW_REGS_SPAN) != 0) {
+  ^
+In file included from ../main.c:12:0:
+d:\intelfpga\18.1\embedded\ds-5\sw\gcc\arm-linux-gnueabihf\libc\usr\include\sys\mman.h:76:12: note: expected 'void *' but argument is of type 'int'
+ extern int munmap (void *__addr, size_t __len) __THROW;
+            ^
+../main.c:47:25: warning: unused variable 'led1' [-Wunused-variable]
+  unsigned int led0 = 1, led1 = 1;
+                         ^
+'Finished building: ../main.c'
+' '
+'Building target: hello'
+'Invoking: GCC C Linker 4 [arm-linux-gnueabihf]'
+arm-linux-gnueabihf-gcc  -o "hello"  ./src/button.o ./src/led.o ./src/mpu.o ./src/uart.o  ./main.o   
+'Finished building target: hello'
+' '

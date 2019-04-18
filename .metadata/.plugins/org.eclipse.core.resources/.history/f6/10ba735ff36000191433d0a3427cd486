@@ -1,0 +1,13 @@
+/*
+ * uart.h
+ *
+ *  Created on: 2019年4月17日
+ *      Author: Verdvana
+ */
+
+#ifndef INC_UART_H_
+#define INC_UART_H_
+
+void uart_putc(char c);  //字符发送
+
+#endif /* INC_UART_H_ */

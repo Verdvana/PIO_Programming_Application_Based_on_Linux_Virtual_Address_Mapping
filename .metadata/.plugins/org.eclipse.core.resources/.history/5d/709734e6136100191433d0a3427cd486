@@ -1,0 +1,83 @@
+/*
+ * uart.c
+ *
+ *  Created on: 2019年4月17日
+ *      Author: Verdvana
+ */
+
+//#include <stddef.h>
+//#include <fcntl.h>
+//#include <sys/mman.h>
+
+#include "../inc/uart.h"
+
+//gcc标准头文件
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+//#include <string.h>
+//#include "socal/hps.h"		//外设地址信息定义
+
+//hps 厂家提供的底层定义头文件
+//#define soc_cv_av	//定义使用soc_cv_av硬件平台
+
+//#include "hwlib.h"			//常量定义
+//#include "socal/socal.h"	//底层操作函数，如位、字节、半字、字的读写
+//#include "socal/hps.h"		//外设地址信息定义
+
+#include "../hps_0.h"
+
+
+extern volatile unsigned long *uart_0_virtual_base ;
+
+void uart_putc(char c)  //字符发送
+{
+	unsigned short uart_status;
+	do{
+		uart_status=*(uart_0_virtual_base+2);
+	}while(!(uart_status & 0x40));
+
+	*(uart_0_virtual_base+1)=c;
+}
+
+
+int uart_getc(void)     //字符接收
+{
+	unsigned short uart_status;
+	do{
+		uart_status=*(uart_0_virtual_base+2);
+	}while(!(uart_status & 0x80));
+
+	return *(uart_0_virtual_base +0);
+}
+
+
+void uart_printf(char *str)  //字符串发送
+{
+	while(*str!='\0')
+	{
+		uart_putc(*str);
+		str++;
+	}
+}
+
+
+int uart_scanf(char *p)     //字符串接收
+{
+	int cnt = 0;
+	while(1)
+	{
+		*p=uart_getc();
+		cnt++;
+		if(*p=='\n')
+			return cnt;
+		else
+			p++;
+	}
+}
+
+void uart_0_init(int br)
+{
+	*(uart_0_virtual_base + 4)=(int)(UART_0_FREQ / br + 0.5);
+}

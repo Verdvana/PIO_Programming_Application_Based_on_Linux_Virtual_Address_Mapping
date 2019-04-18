@@ -1,0 +1,25 @@
+/*
+ * uart.c
+ *
+ *  Created on: 2019Äê4ÔÂ17ÈÕ
+ *      Author: Verdvana
+ */
+
+//#include <stddef.h>
+//#include <fcntl.h>
+//#include <sys/mman.h>
+
+#include "../inc/uart.h"
+
+
+extern volatile unsigned long *uart_0_virtual_base ;
+
+void uart_putc(char c)
+{
+	unsigned short uart_status;
+	do{
+		uart_status=*(uart_0_virtual_base+2);
+	}while(!(uart_status & 0x40));
+
+	*(uart_0_virtual_base+1)=c;
+}
